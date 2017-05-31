@@ -1,0 +1,9 @@
+
+
+<% @comments.each do |comment| %>
+    <%= comment.content %>
+    <% if session[:user_id] == post.user_id%>
+    <%= link_to("Edit", edit_post_comment_path(post)) %>
+    <%= link_to("Delete", post_comment_path(comment), method: :delete)%>
+    <% end %>
+<% end %>

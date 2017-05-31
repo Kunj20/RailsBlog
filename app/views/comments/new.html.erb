@@ -1,0 +1,9 @@
+<h1> New Comment </h1>
+
+<%= form_for [@post, @comment] do |form| %>
+</br>
+<%= form.text_area :body, placeholder: "Comment Here" %>
+</br>
+<%= form.submit %>
+
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_for [@post, @comment] do |form| %>
+  </br>
+  <%= form.text_field :content, placeholder: "Comment Here" %>
+  <%= form.submit %>
+  <%=link_to("Delete", post_comment_path(@post, @comment), method: :delete)%>
+
+<% end %>

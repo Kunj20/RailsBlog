@@ -1,0 +1,23 @@
+<h1>
+<%= @post.title %>
+</h1>
+Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+</br>
+<%= @post.content %>
+</br>
+<%= @user.fname %>
+<%= @user.lname %>
+
+<p id = "comments"><b>REVIEWS OF REVIEW</b></p>
+<!-- Syntax below shows ALL the comments. -->
+<% @post.comments.each do |comment| %>
+  <!-- The user of the respective comment here and what they say. -->
+  <u><b><%= comment.user.fname %></b></u> says...
+
+  <p>
+  <!-- This sets up the text of the comment. -->
+  <%= comment.body %>
+  </p>
+<%end%>
+
+<%= link_to "Post a Comment!", new_post_comment_path(@post)%>

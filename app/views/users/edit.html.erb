@@ -1,0 +1,10 @@
+<%= form_for @user do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :uname %>
+  <%= form.label :fname  %>
+  <%= form.text_field :fname %>
+  <%= form.label :lname %>
+  <%= form.text_field :lname %>
+
+  <%= form.submit "Save"%>
+<% end %>

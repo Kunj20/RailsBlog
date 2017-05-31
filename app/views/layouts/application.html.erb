@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NEWSAPP</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Montserrat|Open+Sans|Quicksand|Nixie+One" rel="stylesheet">
+  </head>
+
+<nav>
+   <ul class="nav navbar-nav navbar-right">
+   </ul>
+ </nav>
+
+ <div>
+     <div id= "t">
+       <% if session[:user_id] %>
+       <%= link_to "Sign Out", "/signout"%>
+       <%= link_to "Posts", "/posts/new" %>
+       <%= link_to "Profile", "#" %>
+       <%= link_to("Users", "/users/")%>
+       <% else %>
+       <%= link_to "Sign In", new_session_path  %>
+       <%= link_to "Sign Up", new_user_path %>
+       <% end %>
+     </div>
+   </div>
+
+     <div id="flash-message">
+       <% if flash[:notice] %>
+       <%= flash[:notice] %>
+       <% end %>
+     </div>
+<body>
+     <div class="container">
+         </div>
+         <div id="nav-banner">
+             <ul class="nav">
+               <li><%= link_to "HOME",'/' %></li>
+               <li><%= link_to "POSTS",'/posts' %></li>
+             </ul>
+         </div>
+     </div>
+
+     <% if notice %>
+   <p class="alert alert-success"><%= notice %></p>
+ <% end %>
+ <% if alert %>
+   <p class="alert alert-danger"><%= alert %></p>
+ <% end %>
+
+
+     <%=yield %>
+     <footer>
+     </footer>
+ </body>
+ <!--
+ <script src="hygge.js"></script> -->
+
+ </html>
